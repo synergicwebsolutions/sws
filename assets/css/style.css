@@ -1,0 +1,9 @@
+.header_text::before,
+.header_text::after {
+    display: inline-block;
+    content: "";
+    border-top: .2rem solid rgb(153, 30, 30);
+    width: 4rem;
+    margin: 0 1rem;
+    transform: translateY(-0.5rem);
+}
