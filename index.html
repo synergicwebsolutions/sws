@@ -1,189 +1,300 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PK48GZ81HE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK48GZ81HE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-PK48GZ81HE');
-</script>
+    gtag('config', 'G-PK48GZ81HE');
+  </script>
   <title>Custom Software & Website Development | SynergicWebSolutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SynergicWebSolutions specializes in custom software and website development. We offer full-stack web development, mobile-friendly designs, and scalable software solutions tailored to your business needs." />
-  <meta name="keywords" content="software development, website development, web design, full-stack development, custom software, responsive web design, web application development" />
+  <meta name="description"
+    content="SynergicWebSolutions specializes in custom software and website development. We offer full-stack web development, mobile-friendly designs, and scalable software solutions tailored to your business needs." />
+  <meta name="keywords"
+    content="software development, website development, web design, full-stack development, custom software, responsive web design, web application development" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-  <!-- MDB -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
-  <!--fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Jost&family=Lora:wght@500;700&family=Open+Sans&family=Outfit:wght@300&family=Poppins:ital,wght@0,300;0,700;1,500&family=Sora:wght@400;700&family=Syne:wght@500&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@100..900&display=swap"
     rel="stylesheet">
-  <link href="./assets/css/swiffy-slider.min.css" rel="stylesheet" />
-  <link href="./assets/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="./assets/css/swiffy-slider.min.css" rel="stylesheet" />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* font-family: "Bebas Neue", sans-serif; */
+      font-family: "Roboto Slab", serif;
+    }
+
     body {
-      /* font-family:'Poppins', sans-serif !important; */
-      font-family: 'Sora', sans-serif !important;
-      color: #16335f !important;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    header {
+      /* background: #f7f9fc; */
+      background: #111;
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    header h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      /* color: #111; */
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      max-width: 600px;
+    }
+
+    .cta {
+      margin-top: 2rem;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #0077ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-right: 1rem;
+    }
+
+    .services,
+    .portfolio,
+    .why-us,
+    .testimonials {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .technologys {
+      padding: 4rem 2rem;
+      width: auto;
+      margin: auto;
+    }
+    .contact-cta,
+    footer {
+      padding: 4rem 2rem;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    footer p a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .services h2,
+    .portfolio h2,
+    .why-us h2,
+    .technologys h2,
+    .testimonials h2,
+    .contact-cta h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-cards,
+    .portfolio-items,
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact-cta {
+      text-align: center;
+      background: #eef5ff;
+      border-radius: 12px;
+    }
+
+    .contact-cta a {
+      margin-top: 1.5rem;
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #111;
+      color: #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    footer p {
+      margin-top: 1rem;
+    }
+
+    .card-image img {
+      transition: transform 0.3s ease;
+    }
+
+    .card-image img:hover {
+      transform: scale(1.1);
+    }
+
+    .card-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .portfolio-items .card a {
+      text-decoration: none;
+    }
+
+    .portfolio-items .card {
+      transition: transform 0.3s ease;
+    }
+
+    .portfolio-items .card:hover {
+      color: #fff;
+      background-image: linear-gradient(135deg, #667eea, #764ba2);
     }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href=""><b>SynergicWebSolutions</b></a>
-      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <!--  <div class="collapse navbar-collapse me-auto" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact us</a>
-          </li>
-        </ul>
+  <div>
+    <nav>
+      <ul style="list-style: none; display: flex; justify-content: center; padding: 1rem; background: #111;">
+        <li style="margin-right: 2rem;"><a href="#portfolio" style="color: #fff; text-decoration: none;">Portfolio</a></li>
+        <li><a href="#contact" style="color: #fff; text-decoration: none;">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <header>
+    <h1>WE DESIGN DIGITAL EXPERIENCES THAT CONVERT</h1>
+    <!--    <p>We’re a creative web design agency helping businesses build modern, responsive, and conversion-focused websites.
+    </p> -->
+    <p>Your gateway to top-tier UX/UI design, web and custom development, maintenance, domain hosting, and cutting-edge
+      mobile app solutions.</p>
+    <div class="cta">
+      <!--
+      <a href="#contact">Get a Free Proposal</a>
+      <a href="#portfolio">See Our Work</a> -->
+    </div>
+  </header>
+
+  <section class="services">
+    <h2>What We Do</h2>
+    <div class="service-cards">
+      <div class="card">🎨 Custom Web Design</div>
+      <div class="card">🛒 E-Commerce Websites</div>
+      <div class="card">⚡️ Landing Page Optimization</div>
+      <div class="card">📱 Responsive Mobile Design</div>
+      <div class="card">🧠 UX/UI Strategy</div>
+      <div class="card">🚀 SEO-Ready Development</div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <h2>Featured Projects</h2>
+    <div class="portfolio-items">
+      <div class="card">
+        <div class="card-image">
+          <img src="assets/img/portfolio/NJ.png" alt="Project Image">
+        </div>
+        <h3>Nepal Journey</h3>
+        <a href="https://nepaljourney.org/" target="_blank">View</a>
+      </div>
+      <div class="card">
+        <div class="card-image">
+          <img src="assets/img/portfolio/CIN.png" alt="Project Image">
+        </div>
+        <h3>Christ Institute of Nursing</h3>
+        <a href="https://christinstituteofnursing.co.in/" target="_blank">View</a>
+      </div>
+      <div class="card">
+        <div class="card-image">
+          <img src="assets/img/portfolio/visithappytrip.jpg" alt="Project Image">
+        </div>
+        <h3>Visit Happy Trip</h3>
+        <a href="https://www.visithappytrip.com/" target="_blank">View</a>
+      </div>
+      <!--
+      <div class="card">
+        <h3>Nepal Journey</h3>
+        <p>Nepal Journey is an NGO website based in the USA dedicated to assisting the people of Nepal through various forms of aid.</p>
+        <a href="https://nepaljourney.org/" target="_blank">View</a>
+      </div>
+      <div class="card">
+        <h3>Christ Institute of Nursing</h3>
+        <p>Christ Institute of Nursing is a prestigious nursing institute situated in Siliguri, West Bengal, India.</p>
+        <a href="https://christinstituteofnursing.co.in/" target="_blank">View</a>
+      </div>
+      <div class="card">
+        <h3>Visit Happy Trip</h3>
+        <p>Visit Happy Trip is a travel website specializing in Bhutan tours and experiences, built using the Symfony 7 framework.</p>
+        <a href="https://www.visithappytrip.com/" target="_blank">View</a>
       </div> -->
     </div>
-  </nav>
-  <img src="banner.png" class="img-fluid">
-  <div class="container-fluid mt-5" style="background-color: f8f9fa;">
-    <div class="pt-5 pb-5">
-      <div class="row text-center">
-        <h1><b>Welcome to SynergicWebSolutions</b></h1>
-        <div class="col-md-6 offset-md-3 mt-5 mb-5">
-          <i>Your gateway to top-tier UX/UI design, web and custom development, maintenance, domain hosting, and
-            cutting-edge mobile app solutions.</i>
-        </div>
+  </section>
+
+  <section class="why-us">
+    <h2>Why Choose Us?</h2>
+    <div class="service-cards">
+      <div class="card">✔ 100% custom design – no templates</div>
+      <div class="card">✔ Real results: more leads, more sales</div>
+      <div class="card">✔ Transparent pricing & fast delivery</div>
+    </div>
+  </section>
+  <!--
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-cards">
+      <div class="card">
+        <p>"The team went above and beyond. Our bounce rate dropped by 30% in just weeks!"</p>
+        <strong>— Amanda R., CEO at UrbanRoots</strong>
       </div>
-      <div class="container mt-3">
-        <h4 class="header_text text-center">Services</h4>
-        <div class="row">
-          <div class="col-md-4 mt-3">
-            <div class="card animate__animated animate__fadeInLeft">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img src="./assets/img/logos/ui_ux.png" alt="Generic placeholder image" width="50px">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="card-title text-primary">UX and UI Design</h5>
-                    <p class="card-text">Enhance user satisfaction with intuitive interfaces. UX focuses on experience,
-                      while UI emphasizes visual elements, creating seamless, engaging digital interactions in any
-                      applications.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-3">
-            <div class="card animate__animated animate__fadeInDown">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img src="./assets/img/logos/web_dev.png" alt="Generic placeholder image" width="50px">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="card-title text-primary">Web Development</h5>
-                    <p class="card-text">Building websites with programming languages and frameworks, ensuring
-                      functionality, responsiveness, and user experience, ranging from simple pages to complex
-                      applications.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-3">
-            <div class="card animate__animated animate__fadeInRight">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img src="./assets/img/logos/soft_dev.png" alt="Generic placeholder image" width="50px">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="card-title text-primary">Custom Development</h5>
-                    <p class="card-text">Tailoring software solutions to specific business needs, providing unique
-                      functionalities and scalability, addressing challenges with personalized, efficient applications.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-3">
-            <div class="card animate__animated animate__fadeInLeft">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img src="./assets/img/logos/maintain.png" alt="Generic placeholder image" width="50px">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="card-title text-primary">Maintainence</h5>
-                    <p class="card-text">Ongoing support to ensure software and systems remain reliable and up-to-date.
-                      Regular updates, bug fixes, and optimizations to sustain optimal performance and security.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-3">
-            <div class="card animate__animated animate__fadeInUp">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img src="./assets/img/logos/host.png" alt="Generic placeholder image" width="50px">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="card-title text-primary">Domain & Hosting</h5>
-                    <p class="card-text">Managing domain and hosting for online presence. Facilitating website
-                      accessibility, speed, and reliability with secure domain registration and hosting solutions.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mt-3">
-            <div class="card animate__animated animate__fadeInRight">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img src="./assets/img/logos/mobile_app.png" alt="Generic placeholder image" width="50px">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="card-title text-primary">Mobile App Devlopment</h5>
-                    <p class="card-text">Build innovative mobile solutions, combining user-centric design and robust
-                      development for engaging and high-performance mobile applications.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="card">
+        <p>"Clean, modern, and so easy to manage. Best decision we made for our brand."</p>
+        <strong>— Ravi M., Founder of FitNation</strong>
       </div>
     </div>
-  </div>
-  <div class="container mt-4">
-    <h4 class="pt-3 pb-3">Technologies we use</h4>
+  </section>
+-->
+  <section class="contact-cta" id="contact">
+    <h2>Ready to build something awesome?</h2>
+    <p>Let’s design a site that brings your vision to life.</p>
+    <a href="mailto:synergicwebsolutions@gmail.com">Get a Free Quote</a>
+  </section>
+
+  <div class="technologys">
+    <h2>Technologies we use</h2>
     <div
       class="swiffy-slider slider-item-show4 slider-nav-outside slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio-32x9 bg-white shadow-lg py-3 py-lg-4"
       data-slider-nav-autoplay-interval="2000">
@@ -210,149 +321,10 @@
 
     </div>
   </div>
-  <div class="container mt-4">
-    <h4 class="pt-3 pb-3">Recent work</h4>
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <div class="border border-dark">
-          <img src="assets/img/portfolio/NJ.png" class="img-fluid" alt="Nepal Journey" />
-          <h4 class="mt-3">Nepal Journey</h4>
-          <a href="https://nepaljourney.org/" target="_blank">Preview</a>
-        </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <div class="border border-dark">
-          <img src="assets/img/portfolio/CIN.png" class="img-fluid" alt="Christ Institue of Nursing" />
-          <h4 class="mt-3">Christ Institue of Nursing</h4>
-          <a href="https://christinstituteofnursing.co.in/" target="_blank">Preview</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Footer -->
-  <footer class="text-center text-lg-start bg-body-tertiary text-muted mt-3">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Get connected with us on social networks:</span>
-      </div>
-      <!-- Left -->
-
-      <!-- Right -->
-      <div>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>SynergicWebSolutions
-            </h6>
-            <p>
-              Your gateway to top-tier UX/UI design, web and custom development, maintenance, domain hosting, and
-              cutting-edge mobile app solutions.
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Products
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">HTML/CSS</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">JavaScript</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">PHP Framework</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">JS Framework</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Useful links
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">Pricing</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Settings</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Orders</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Help</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home"></i> Darjeeling, WB, India</p>
-            <p>
-              <i class="fas fa-envelope"></i>
-              synergicwebsolutions@gmail.com
-            </p>
-            <p><i class="fas fa-phone"></i> + 91 6295135254</p>
-            <!--<p><i class="fas fa-print"></i> + 01 234 567 89</p> -->
-          </div>
-          <!-- Grid column -->
-        </div>
-        <!-- Grid row -->
-      </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2024 Copyright:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">SynergicWebSolutions</a>
-    </div>
-    <!-- Copyright -->
+  <footer>
+    <p>&copy; 2025 Synergic Web Design Agency. All rights reserved.</p>
+    <p>Contact: + 91 6295135254 | <a href="mailto:synergicwebsolutions@gmail.com">synergicwebsolutions@gmail.com</a> </p>
   </footer>
-  <!-- Footer -->
-  <!-- MDB -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
   <script src="./assets/js/swiffy-slider.min.js"></script>
 </body>
 
