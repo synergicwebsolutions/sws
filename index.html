@@ -1,332 +1,755 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google tag (gtag.js) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK48GZ81HE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-PK48GZ81HE');
   </script>
-  <title>Custom Software & Website Development | MomoStack</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="MomoStack specializes in custom software and website development. We offer full-stack web development, mobile-friendly designs, and scalable software solutions tailored to your business needs." />
-  <meta name="keywords"
-    content="software development, website development, web design, full-stack development, custom software, responsive web design, web application development" />
+
+  <title>MomoStack - Custom Website & Software Development Agency Darjeeliing India | SEO Expert Web Development</title>
+
+  <meta name="description" content="Leading website development agency in Darjeeliing, India. MomoStack builds high-performance, SEO-optimized websites and custom software solutions. Trusted by businesses across USA, Nepal & India. Free consultation available." />
+
+  <meta name="keywords" content="website development agency India, custom software development, web development Darjeeling, SEO web design, e-commerce development, full stack development agency, website design India" />
+
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://momostack.com" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MomoStack - Custom Website & Software Development Agency" />
+  <meta property="og:description" content="Professional web development agency delivering SEO-optimized websites and custom software solutions" />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Slab:wght@100..900&display=swap"
-    rel="stylesheet">
-    <link href="./assets/css/swiffy-slider.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #0ea5e9;
+      --dark: #0f172a;
+      --dark-light: #1e293b;
+      --text: #334155;
+      --text-light: #64748b;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --accent: #f59e0b;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      /* font-family: "Bebas Neue", sans-serif; */
-      font-family: "Roboto Slab", serif;
     }
 
     body {
-      line-height: 1.6;
-      color: #222;
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
     }
 
-    header {
-      /* background: #f7f9fc; */
-      background: #111;
-      padding: 4rem 2rem;
+    h1, h2, h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      list-style: none;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      padding: 1.2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    nav ul li {
+      margin: 0 1.5rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    nav ul li a:hover {
+      color: var(--secondary);
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondary);
+      transition: width 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+      padding: 8rem 2rem 6rem;
       text-align: center;
       color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    header .content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: auto;
     }
 
     header h1 {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      /* color: #111; */
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    header .highlight {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     header p {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      max-width: 600px;
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: auto;
+      color: #cbd5e1;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
     }
 
-    .cta {
-      margin-top: 2rem;
+    .hero-cta {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.4s backwards;
     }
 
-    .cta a {
+    .btn {
       display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: #0077ff;
-      color: #fff;
+      padding: 1rem 2rem;
       text-decoration: none;
       border-radius: 8px;
-      margin-right: 1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-size: 1rem;
     }
 
-    .services,
-    .portfolio,
-    .why-us,
-    .testimonials {
-      padding: 4rem 2rem;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--bg-alt);
+      padding: 3rem 2rem;
+      margin-top: -3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
       max-width: 1000px;
       margin: auto;
-    }
-    .technologys {
-      padding: 4rem 2rem;
-      width: auto;
-      margin: auto;
-    }
-    .contact-cta,
-    footer {
-      padding: 4rem 2rem;
-      max-width: 100%;
-      margin: auto;
-    }
-
-    footer p a {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .services h2,
-    .portfolio h2,
-    .why-us h2,
-    .technologys h2,
-    .testimonials h2,
-    .contact-cta h2 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
     }
 
-    .service-cards,
-    .portfolio-items,
-    .testimonial-cards {
+    .stat-item h3 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-item p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Sections */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section.alt {
+      background: var(--bg-alt);
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Grid */
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
+    /* Cards */
     .card {
       background: #fff;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
-
-    .contact-cta {
-      text-align: center;
-      background: #eef5ff;
-      border-radius: 12px;
-    }
-
-    .contact-cta a {
-      margin-top: 1.5rem;
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-
-    footer {
-      background: #111;
-      color: #ddd;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
       padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
-    footer p {
-      margin-top: 1rem;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
     }
 
-    .card-image img {
-      transition: transform 0.3s ease;
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
     }
 
-    .card-image img:hover {
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: var(--dark);
+    }
+
+    .card p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* Portfolio */
+    .portfolio-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .portfolio-card:hover img {
       transform: scale(1.1);
     }
 
-    .card-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
+    .portfolio-card .content {
+      padding: 1.8rem;
     }
 
-    .portfolio-items .card a {
+    .portfolio-card h3 {
+      margin-bottom: 0.6rem;
+      font-size: 1.25rem;
+    }
+
+    .portfolio-card p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-card a {
+      color: var(--primary);
       text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s;
     }
 
-    .portfolio-items .card {
-      transition: transform 0.3s ease;
+    .portfolio-card a:hover {
+      gap: 0.8rem;
     }
 
-    .portfolio-items .card:hover {
+    /* Process Section */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
-      background-image: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .process-step h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    /* CTA Section */
+    .cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+      border-radius: 20px;
+      margin: 3rem auto;
+      max-width: 1000px;
+    }
+
+    .cta h2 {
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #cbd5e1;
+      padding: 3rem 2rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: #cbd5e1;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+      }
+
+      nav ul li {
+        margin: 0.5rem 1rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div>
-    <nav>
-      <ul style="list-style: none; display: flex; justify-content: center; padding: 1rem; background: #111;">
-        <li style="margin-right: 2rem;"><a href="#portfolio" style="color: #fff; text-decoration: none;">Portfolio</a></li>
-        <li><a href="#contact" style="color: #fff; text-decoration: none;">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
   <header>
-    <h1>WE DESIGN DIGITAL EXPERIENCES THAT CONVERT</h1>
-    <!--    <p>We’re a creative web design agency helping businesses build modern, responsive, and conversion-focused websites.
-    </p> -->
-    <p>Your gateway to top-tier UX/UI design, web and custom development, maintenance, domain hosting, and cutting-edge
-      mobile app solutions.</p>
-    <div class="cta">
-      <!--
-      <a href="#contact">Get a Free Proposal</a>
-      <a href="#portfolio">See Our Work</a> -->
+    <div class="content">
+      <h1>
+        Transform Your Vision into <span class="highlight">Digital Reality</span>
+      </h1>
+      <p>
+        Web development agency specializing in high-performance, SEO-optimized websites and custom software solutions. We help businesses scale with cutting-edge digital experiences.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        <a href="#portfolio" class="btn btn-secondary">View Our Work</a>
+      </div>
     </div>
   </header>
 
-  <section class="services">
-    <h2>What We Do</h2>
-    <div class="service-cards">
-      <div class="card">🎨 Custom Web Design</div>
-      <div class="card">🛒 E-Commerce Websites</div>
-      <div class="card">⚡️ Landing Page Optimization</div>
-      <div class="card">📱 Responsive Mobile Design</div>
-      <div class="card">🧠 UX/UI Strategy</div>
-      <div class="card">🚀 SEO-Ready Development</div>
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>20+</h3>
+        <p>Projects Delivered</p>
+      </div>
+      <div class="stat-item">
+        <h3>98%</h3>
+        <p>Client Satisfaction</p>
+      </div>
+      <div class="stat-item">
+        <h3>3+</h3>
+        <p>Countries Served</p>
+      </div>
+      <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Support Available</p>
+      </div>
     </div>
   </section>
 
-  <section class="portfolio" id="portfolio">
+  <!-- About -->
+  <section>
+    <h2>Why Choose MomoStack?</h2>
+    <p class="section-subtitle">
+      We're not just developers—we're your strategic technology partner. Based in Darjeeling, India, we deliver world-class digital solutions to businesses across USA, Nepal, and India.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🚀</div>
+        <h3>Performance-First</h3>
+        <p>Lightning-fast websites optimized for speed, conversions, and user experience. Every millisecond counts.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>SEO Expertise</h3>
+        <p>Built-in SEO optimization to ensure your website ranks high on Google and drives organic traffic.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💎</div>
+        <h3>Custom Solutions</h3>
+        <p>Tailored development that perfectly matches your unique business needs and goals.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔒</div>
+        <h3>Security First</h3>
+        <p>Enterprise-grade security measures to protect your data and your customers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="alt">
+    <h2>Our Services</h2>
+    <p class="section-subtitle">Comprehensive web development solutions tailored to your business growth</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Custom Website Development</h3>
+        <p>Bespoke, SEO-optimized websites built with modern technologies. Fast loading, mobile-responsive, and conversion-focused.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛒</div>
+        <h3>E-Commerce Solutions</h3>
+        <p>Full-featured online stores with secure payment gateways, inventory management, and seamless checkout experiences.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Web Applications</h3>
+        <p>Scalable, robust web apps built to handle complex business processes and workflows efficiently.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🎨</div>
+        <h3>UI/UX Design</h3>
+        <p>Beautiful, intuitive designs that enhance user engagement and drive measurable business results.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h3>Landing Page Optimization</h3>
+        <p>High-converting landing pages designed to maximize leads, sales, and ROI for your campaigns.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>Maintenance & Support</h3>
+        <p>Comprehensive ongoing support, security updates, performance optimization, and technical assistance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <h2>Our Development Process</h2>
+    <p class="section-subtitle">A proven methodology that delivers exceptional results every time</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-number">1</div>
+        <h3>Discovery & Strategy</h3>
+        <p>We analyze your goals, audience, and competition to create a winning strategy</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">2</div>
+        <h3>Design & Prototyping</h3>
+        <p>Create beautiful, user-centered designs that align with your brand</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">3</div>
+        <h3>Development</h3>
+        <p>Build with clean code, best practices, and cutting-edge technologies</p>
+      </div>
+      <div class="process-step">
+        <div class="process-number">4</div>
+        <h3>Launch & Optimize</h3>
+        <p>Deploy, monitor, and continuously improve for maximum performance</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="alt">
     <h2>Featured Projects</h2>
-    <div class="portfolio-items">
-      <div class="card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/NJ.png" alt="Project Image">
+    <p class="section-subtitle">Real results for real businesses across industries</p>
+    <div class="grid">
+      <div class="portfolio-card">
+        <img src="assets/img/portfolio/NJ.png" alt="Nepal Journey NGO Website Development">
+        <div class="content">
+          <h3>Nepal Journey – NGO Platform</h3>
+          <p>Custom website for US-based NGO supporting Nepal communities. Features donation system and impact reporting.</p>
+          <a href="https://nepaljourney.org/" target="_blank" rel="noopener">View Project →</a>
         </div>
-        <h3>Nepal Journey</h3>
-        <a href="https://nepaljourney.org/" target="_blank">View</a>
       </div>
-      <div class="card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/CIN.png" alt="Project Image">
+
+      <div class="portfolio-card">
+        <img src="assets/img/portfolio/CIN.png" alt="Christ Institute of Nursing Educational Website">
+        <div class="content">
+          <h3>Christ Institute of Nursing</h3>
+          <p>Educational institution website with online admissions, course catalog, and student portal integration.</p>
+          <a href="https://christinstituteofnursing.co.in/" target="_blank" rel="noopener">View Project →</a>
         </div>
-        <h3>Christ Institute of Nursing</h3>
-        <a href="https://christinstituteofnursing.co.in/" target="_blank">View</a>
       </div>
-      <div class="card">
-        <div class="card-image">
-          <img src="assets/img/portfolio/visithappytrip.jpg" alt="Project Image">
+
+      <div class="portfolio-card">
+        <img src="assets/img/portfolio/visithappytrip.jpg" alt="Visit Happy Trip Travel and Tourism Website">
+        <div class="content">
+          <h3>Visit Happy Trip – Travel Platform</h3>
+          <p>Full-service tourism website for Bhutan travel with booking system, tour packages, and customer reviews.</p>
+          <a href="https://www.visithappytrip.com/" target="_blank" rel="noopener">View Project →</a>
         </div>
-        <h3>Visit Happy Trip</h3>
-        <a href="https://www.visithappytrip.com/" target="_blank">View</a>
-      </div>
-      <!--
-      <div class="card">
-        <h3>Nepal Journey</h3>
-        <p>Nepal Journey is an NGO website based in the USA dedicated to assisting the people of Nepal through various forms of aid.</p>
-        <a href="https://nepaljourney.org/" target="_blank">View</a>
-      </div>
-      <div class="card">
-        <h3>Christ Institute of Nursing</h3>
-        <p>Christ Institute of Nursing is a prestigious nursing institute situated in Siliguri, West Bengal, India.</p>
-        <a href="https://christinstituteofnursing.co.in/" target="_blank">View</a>
-      </div>
-      <div class="card">
-        <h3>Visit Happy Trip</h3>
-        <p>Visit Happy Trip is a travel website specializing in Bhutan tours and experiences, built using the Symfony 7 framework.</p>
-        <a href="https://www.visithappytrip.com/" target="_blank">View</a>
-      </div> -->
-    </div>
-  </section>
-
-  <section class="why-us">
-    <h2>Why Choose Us?</h2>
-    <div class="service-cards">
-      <div class="card">✔ 100% custom design – no templates</div>
-      <div class="card">✔ Real results: more leads, more sales</div>
-      <div class="card">✔ Transparent pricing & fast delivery</div>
-    </div>
-  </section>
-  <!--
-  <section class="testimonials">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonial-cards">
-      <div class="card">
-        <p>"The team went above and beyond. Our bounce rate dropped by 30% in just weeks!"</p>
-        <strong>— Amanda R., CEO at UrbanRoots</strong>
-      </div>
-      <div class="card">
-        <p>"Clean, modern, and so easy to manage. Best decision we made for our brand."</p>
-        <strong>— Ravi M., Founder of FitNation</strong>
       </div>
     </div>
   </section>
--->
-  <section class="contact-cta" id="contact">
-    <h2>Ready to build something awesome?</h2>
-    <p>Let’s design a site that brings your vision to life.</p>
-    <a href="mailto:synergicwebsolutions@gmail.com">Get a Free Quote</a>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p class="section-subtitle">Everything you need to know about working with MomoStack</p>
+    <div class="grid">
+      <div class="card">
+        <h3>How much does a website cost?</h3>
+        <p>Project costs vary based on complexity, features, and timeline. We offer flexible packages starting from budget-friendly options for startups to enterprise solutions. Contact us for a custom quote.</p>
+      </div>
+      <div class="card">
+        <h3>How long does development take?</h3>
+        <p>Typical projects range from 2-8 weeks depending on scope. Simple websites take 2-3 weeks, while complex web applications may require 6-8 weeks or more.</p>
+      </div>
+      <div class="card">
+        <h3>Do you work with international clients?</h3>
+        <p>Absolutely! We proudly serve clients across India, Nepal, USA, and globally. Our team is experienced in remote collaboration and different time zones.</p>
+      </div>
+      <div class="card">
+        <h3>What technologies do you use?</h3>
+        <p>We use modern, industry-standard technologies including React, Node.js, PHP, WordPress, and more—chosen based on your specific project needs.</p>
+      </div>
+      <div class="card">
+        <h3>Do you provide ongoing support?</h3>
+        <p>Yes! We offer comprehensive maintenance plans including security updates, performance optimization, content updates, and 24/7 technical support.</p>
+      </div>
+      <div class="card">
+        <h3>Will my website be mobile-friendly?</h3>
+        <p>Guaranteed. Every website we build is fully responsive and optimized for all devices—mobile, tablet, and desktop.</p>
+      </div>
+    </div>
   </section>
 
-  <div class="technologys">
-    <h2>Technologies we use</h2>
-    <div
-      class="swiffy-slider slider-item-show4 slider-nav-outside slider-nav-dark slider-nav-sm slider-nav-visible slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-item-ratio slider-item-ratio-contain slider-item-ratio-32x9 bg-white shadow-lg py-3 py-lg-4"
-      data-slider-nav-autoplay-interval="2000">
-      <div class="slider-container" style="height: 100px;">
-        <div><img src="./assets/img/brandlogos/php.svg" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/symfony.svg" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/figma.svg" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/css-3.svg" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/javascript-1.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/bootstrap-5.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/eslint-1.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/github-2.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/html-1.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/webpack-icon.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/react-2.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/nodejs-1.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/prettier-2.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/angular-icon-1.svg" loading="lazy" alt="..."></div>
-        <div><img src="./assets/img/brandlogos/github-icon.svg" loading="lazy" alt="..."></div>
-      </div>
+  <!-- CTA -->
+  <section id="contact" class="cta">
+    <h2>Ready to Build Something Amazing?</h2>
+    <p>Let's discuss your project and create a digital solution that drives real business results.</p>
+    <a href="mailto:momostackagency@gmail.com" class="btn" style="background: white; color: var(--primary);">Get Free Consultation</a>
+  </section>
 
-      <button type="button" class="slider-nav" aria-label="Go left"></button>
-      <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
-
-    </div>
-  </div>
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 MomoStack Agency. All rights reserved.</p>
-    <p>Address: Lebong, Darjeeling, 734105</p>
-    <p>Contact: + 91 6295135254 | <a href="mailto:synergicwebsolutions@gmail.com">synergicwebsolutions@gmail.com</a> </p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>MomoStack</h3>
+        <p>Leading custom website and software development agency delivering high-performance digital solutions.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <a href="#services">Website Development</a>
+        <a href="#services">E-Commerce Solutions</a>
+        <a href="#services">Web Applications</a>
+        <a href="#services">UI/UX Design</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <p>📍 Lebong, Darjeeling – 734105, India</p>
+        <p>📞 <a href="tel:+916295135254">+91 6295135254</a></p>
+        <p>✉️ <a href="mailto:momostackagency@gmail.com">momostackagency@gmail.com</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Get Quote</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MomoStack. All rights reserved. | Professional Website Development Agency in Darjeeling, India</p>
+    </div>
   </footer>
-  <script src="./assets/js/swiffy-slider.min.js"></script>
-</body>
 
+</body>
 </html>
