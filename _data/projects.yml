@@ -1,0 +1,31 @@
+- title: Nepal Journey
+  tag: NGO · USA / Nepal
+  description: US-based NGO platform with donation system, impact reporting, and community storytelling features.
+  image: /assets/img/portfolio/NJ.png
+  alt: Nepal Journey NGO Website
+  url: https://nepaljourney.org/
+  featured: true
+
+- title: Christ Institute of Nursing
+  tag: Education · India
+  description: Educational platform with online admissions, course catalog, and student portal.
+  image: /assets/img/portfolio/CIN.png
+  alt: Christ Institute of Nursing Website
+  url: https://christinstituteofnursing.co.in/
+  featured: false
+
+- title: Visit Happy Trip
+  tag: Travel & Tourism · Bhutan
+  description: Full-service Bhutan travel platform with booking engine, tour packages, and customer reviews.
+  image: /assets/img/portfolio/visithappytrip.jpg
+  alt: Visit Happy Trip Travel Website
+  url: https://www.visithappytrip.com/
+  featured: false
+
+- title: Mighty Nepal
+  tag: Travel & Tourism · Nepal
+  description: Travel website for Mighty Nepal, a Nepal-focused travel brand.
+  image: /assets/img/portfolio/mighty_nepal.JPG
+  alt: Mighty Nepal travel website
+  url: https://mightynepal.com/
+  featured: false

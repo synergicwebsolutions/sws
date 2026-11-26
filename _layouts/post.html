@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<article class="post-article">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "{{ site.url }}/blog/" },
+      { "@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}, "item": "{{ site.url }}{{ page.url }}" }
+    ]
+  }
+  </script>
+
+  <header class="post-header">
+    <div class="container">
+      <span class="section-label">{{ page.categories.first | default: "Insights" }}</span>
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-description">{{ page.description }}</p>
+      <div class="post-meta">
+        <span>By {{ site.title }}</span>
+        <span aria-hidden="true">&middot;</span>
+        <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %d, %Y" }}</time>
+        <span aria-hidden="true">&middot;</span>
+        <span>{{ page.read_time | default: "5 min read" }}</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="post-body">
+      {{ content }}
+    </div>
+
+    <nav class="post-nav" aria-label="Article navigation">
+      <a href="{{ '/blog/' | relative_url }}" class="btn btn-outline">&larr; All articles</a>
+      <a href="{{ '/' | relative_url }}#contact" class="btn btn-accent">
+        Start a project <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </nav>
+  </div>
+</article>
+
+{% include cta.html %}

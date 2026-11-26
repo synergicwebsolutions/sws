@@ -1,0 +1,51 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="{{ '/' | relative_url }}" class="brand" aria-label="{{ site.title }} Home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">Momo<span>Stack</span></span>
+        </a>
+        <p>
+          Custom website and software development studio delivering fast, reliable digital
+          solutions from the hills of Darjeeling, India.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#services">Website Development</a></li>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#services">E-Commerce</a></li>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#services">Web Applications</a></li>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#services">UI/UX Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#about">About</a></li>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#portfolio">Portfolio</a></li>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#process">Process</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+          <li><a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <ul class="footer-contact">
+          <li>{{ site.location }}</li>
+          <li><a href="tel:{{ site.phone_href }}">{{ site.phone }}</a></li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+      <p>Web &amp; Software Studio &middot; {{ site.service_regions }}</p>
+    </div>
+  </div>
+</footer>

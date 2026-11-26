@@ -1,0 +1,43 @@
+---
+layout: default
+title: Blog
+description: >-
+  Practical guides on web development, technical SEO, and custom software from
+  the MomoStack studio in Darjeeling, India.
+canonical: https://www.momostack.com/blog/
+image: /assets/img/banner.png
+permalink: /blog/
+---
+
+<section class="page-hero">
+  <div class="container">
+    <span class="section-label">Insights</span>
+    <h1 class="page-title">Notes on building better digital products.</h1>
+    <p class="page-subtitle">
+      Practical guides on web development, SEO, and custom software—written for
+      founders and teams who want clarity before they invest.
+    </p>
+  </div>
+</section>
+
+<section class="section blog-section">
+  <div class="container">
+    <div class="blog-grid">
+      {% for post in site.posts %}
+        <article class="post-card">
+          <a href="{{ post.url | relative_url }}" class="post-card-link">
+            <div class="post-card-meta">
+              <span class="post-category">{{ post.categories.first | default: "Insights" }}</span>
+              <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+            </div>
+            <h2 class="post-card-title">{{ post.title }}</h2>
+            <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</p>
+            <span class="post-card-cta">Read article <span aria-hidden="true">→</span></span>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include cta.html %}

@@ -1,0 +1,41 @@
+title: MomoStack
+tagline: Digital Studio, Darjeeling
+description: >-
+  MomoStack builds high-performance, SEO-optimized websites and custom software.
+  Based in Darjeeling, India. Trusted by businesses across India, Nepal & the USA.
+
+url: "https://www.momostack.com"
+baseurl: ""
+
+lang: en
+locale: en_US
+
+# Social sharing + structured data
+image: /assets/img/banner.png
+image_alt: "MomoStack — custom websites and software from Darjeeling, India"
+image_width: 1200
+image_height: 630
+logo: /assets/img/logo.svg
+author:
+  type: Organization
+  name: MomoStack
+  logo: /assets/img/logo.svg
+
+email: momostackagency@gmail.com
+phone: "+91 6295135254"
+phone_href: "+916295135254"
+location: "Lebong, Darjeeling – 734105, India"
+service_regions: "India · Nepal · USA"
+
+google_analytics: G-PK48GZ81HE
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - node_modules
+  - vendor

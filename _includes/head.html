@@ -1,0 +1,34 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  {% seo %}
+  {% if page.robots %}<meta name="robots" content="{{ page.robots }}">{% endif %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "{{ site.url }}/#organization",
+    "name": {{ site.title | jsonify }},
+    "url": "{{ site.url }}/",
+    "logo": "{{ site.url }}{{ site.logo }}",
+    "email": {{ site.email | jsonify }},
+    "telephone": {{ site.phone | jsonify }},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Lebong",
+      "addressLocality": "Darjeeling",
+      "postalCode": "734105",
+      "addressCountry": "IN"
+    },
+    "areaServed": ["India", "Nepal", "United States"]
+  }
+  </script>
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} articles" href="{{ '/feed.xml' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {% include analytics.html %}
+</head>

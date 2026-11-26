@@ -1,0 +1,55 @@
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="{{ '/' | relative_url }}" class="brand" aria-label="{{ site.title }} Home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">Momo<span>Stack</span></span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <ul class="nav-list">
+        {% for item in site.data.navigation %}
+          <li>
+            <a href="{% if item.url contains '/' %}{{ item.url | relative_url }}{% else %}{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}{{ item.url }}{% endif %}">
+              {{ item.label }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#contact" class="btn btn-accent btn-sm nav-cta">
+        Start Project
+      </a>
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <ul class="mobile-nav-list">
+      {% for item in site.data.navigation %}
+        <li>
+          <a href="{% if item.url contains '/' %}{{ item.url | relative_url }}{% else %}{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}{{ item.url }}{% endif %}">
+            {{ item.label }}
+          </a>
+        </li>
+      {% endfor %}
+      <li>
+        <a href="{% unless page.url == '/' %}{{ '/' | relative_url }}{% endunless %}#contact" class="btn btn-accent btn-mobile-cta">
+          Start Project
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

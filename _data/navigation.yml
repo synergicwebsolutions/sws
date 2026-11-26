@@ -1,0 +1,12 @@
+- label: About
+  url: "#about"
+- label: Services
+  url: "#services"
+- label: Process
+  url: "#process"
+- label: Work
+  url: "#portfolio"
+- label: Blog
+  url: "/blog/"
+- label: FAQ
+  url: "#faq"

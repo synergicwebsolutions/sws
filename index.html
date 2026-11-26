@@ -1,1176 +1,334 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MomoStack — Digital Studio, Darjeeling</title>
-  <meta name="description" content="MomoStack builds high-performance, SEO-optimized websites and custom software. Based in Darjeeling, India. Trusted by businesses across USA, Nepal & India." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PK48GZ81HE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PK48GZ81HE');
-  </script>
-  <style>
-    :root {
-      --black: #0c0c0b;
-      --dark: #131310;
-      --surface: #1a1a17;
-      --border: rgba(255,255,255,0.07);
-      --amber: #e8a024;
-      --amber-light: #f5c05a;
-      --cream: #f0ead8;
-      --muted: #7a7870;
-      --text: #d4cfc4;
-    }
-
-    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.7;
-      overflow-x: hidden;
-      cursor: none;
-    }
-
-    /* Custom cursor */
-    .cursor {
-      position: fixed;
-      width: 10px; height: 10px;
-      background: var(--amber);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: width 0.2s, height 0.2s, background 0.2s;
-      mix-blend-mode: screen;
-    }
-    .cursor-ring {
-      position: fixed;
-      width: 36px; height: 36px;
-      border: 1px solid rgba(232, 160, 36, 0.4);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: all 0.12s ease;
-    }
-    body:has(a:hover) .cursor { width: 18px; height: 18px; }
-    body:has(a:hover) .cursor-ring { width: 52px; height: 52px; border-color: var(--amber); }
-
-    /* Grain overlay */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.028;
-      pointer-events: none;
-      z-index: 9000;
-    }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.5rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid transparent;
-      transition: all 0.4s;
-    }
-    nav.scrolled {
-      background: rgba(12,12,11,0.92);
-      backdrop-filter: blur(16px);
-      border-bottom-color: var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--amber); }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2.5rem;
-    }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--cream); }
-
-    .nav-cta {
-      background: var(--amber);
-      color: var(--black) !important;
-      padding: 0.55rem 1.4rem;
-      border-radius: 2px;
-      font-weight: 500 !important;
-      color: var(--black) !important;
-    }
-    .nav-cta:hover { background: var(--amber-light); color: var(--black) !important; }
-
-    /* ─── HERO ─── */
-    header {
-      min-height: 100vh;
-      display: grid;
-      grid-template-rows: 1fr auto;
-      padding: 0 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(232,160,36,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(232,160,36,0.04) 0%, transparent 60%);
-    }
-
-    /* Large decorative grid lines */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 80px 80px;
-      mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
-    }
-
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 8rem;
-      position: relative;
-      z-index: 2;
-      max-width: 1300px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      animation: fadeUp 1s ease both;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      width: 40px; height: 1px;
-      background: var(--amber);
-    }
-    .hero-eyebrow span {
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-    }
-
-    .hero-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(5rem, 12vw, 13rem);
-      line-height: 0.92;
-      letter-spacing: -0.01em;
-      color: var(--cream);
-      animation: fadeUp 1s 0.1s ease both;
-      position: relative;
-    }
-    .hero-title .italic {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      color: var(--amber);
-      font-size: 0.8em;
-    }
-    .hero-title .outline {
-      -webkit-text-stroke: 1.5px rgba(240,234,216,0.25);
-      color: transparent;
-    }
-
-    .hero-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding-bottom: 4rem;
-      position: relative;
-      z-index: 2;
-      max-width: 1300px;
-      margin: 0 auto;
-      width: 100%;
-      animation: fadeUp 1s 0.3s ease both;
-    }
-
-    .hero-desc {
-      max-width: 380px;
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 1.2rem;
-    }
-
-    .btn-primary {
-      background: var(--amber);
-      color: var(--black);
-      padding: 1rem 2.5rem;
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: all 0.3s;
-      display: inline-block;
-    }
-    .btn-primary:hover {
-      background: var(--amber-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-ghost {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: all 0.3s;
-    }
-    .btn-ghost:hover { color: var(--cream); border-color: var(--cream); }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      z-index: 2;
-      animation: fadeUp 1s 0.6s ease both;
-    }
-    .scroll-hint span {
-      font-size: 0.6rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .scroll-line {
-      width: 1px;
-      height: 50px;
-      background: linear-gradient(to bottom, var(--amber), transparent);
-      animation: scrollPulse 2s ease infinite;
-    }
-
-    /* ─── STATS TICKER ─── */
-    .ticker {
-      background: var(--amber);
-      overflow: hidden;
-      padding: 0.8rem 0;
-      white-space: nowrap;
-    }
-    .ticker-inner {
-      display: inline-flex;
-      animation: ticker 18s linear infinite;
-    }
-    .ticker-item {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      color: var(--black);
-      padding: 0 2.5rem;
-    }
-    .ticker-sep {
-      color: rgba(0,0,0,0.3);
-      font-size: 1rem;
-    }
-
-    /* ─── SECTIONS COMMON ─── */
-    .section {
-      padding: 7rem 3rem;
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .section-label::before {
-      content: '';
-      width: 28px; height: 1px;
-      background: var(--amber);
-    }
-    .section-label span {
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-    }
-
-    .section-heading {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      color: var(--cream);
-      margin-bottom: 0.6rem;
-    }
-    .section-heading .em {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      color: var(--amber);
-    }
-
-    .section-sub {
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 500px;
-      margin-bottom: 4rem;
-    }
-
-    /* ─── ABOUT / WHY ─── */
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .why-card {
-      background: var(--dark);
-      padding: 2.5rem;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .why-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 0;
-      background: var(--amber);
-      transition: height 0.4s;
-    }
-    .why-card:hover { background: var(--surface); }
-    .why-card:hover::before { height: 100%; }
-
-    .why-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: rgba(232,160,36,0.15);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    .why-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-      margin-bottom: 0.8rem;
-    }
-    .why-card p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.8;
-    }
-
-    /* ─── SERVICES ─── */
-    .services-wrap {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .services-list {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .service-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 2rem 3rem;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
-      cursor: default;
-      gap: 2rem;
-    }
-    .service-row:last-child { border-bottom: none; }
-    .service-row:hover { background: rgba(232,160,36,0.04); }
-    .service-row:hover .service-arrow { opacity: 1; transform: translateX(0); }
-
-    .service-left {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex: 1;
-    }
-    .service-idx {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1rem;
-      color: var(--amber);
-      letter-spacing: 0.1em;
-      width: 40px;
-      flex-shrink: 0;
-    }
-    .service-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.4rem, 3vw, 2.4rem);
-      letter-spacing: 0.04em;
-      color: var(--cream);
-    }
-    .service-desc {
-      color: var(--muted);
-      font-size: 0.85rem;
-      max-width: 340px;
-    }
-    .service-arrow {
-      font-size: 1.4rem;
-      color: var(--amber);
-      opacity: 0;
-      transform: translateX(-8px);
-      transition: all 0.3s;
-    }
-
-    /* ─── PROCESS ─── */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border: 1px solid var(--border);
-    }
-
-    .process-card {
-      padding: 2.5rem 2rem;
-      border-right: 1px solid var(--border);
-      position: relative;
-    }
-    .process-card:last-child { border-right: none; }
-
-    .process-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--amber);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s;
-    }
-    .process-card:hover::after { transform: scaleX(1); }
-
-    .process-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 4rem;
-      color: rgba(232,160,36,0.1);
-      line-height: 1;
-      margin-bottom: 1.5rem;
-    }
-    .process-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-      margin-bottom: 0.8rem;
-    }
-    .process-card p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    /* ─── PORTFOLIO ─── */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-    }
-
-    .port-card {
-      background: var(--dark);
-      overflow: hidden;
-      position: relative;
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .port-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: grayscale(60%) brightness(0.5);
-      transition: all 0.6s;
-    }
-    .port-card:hover img {
-      filter: grayscale(20%) brightness(0.65);
-      transform: scale(1.04);
-    }
-
-    .port-info {
-      position: relative;
-      z-index: 1;
-      padding: 2rem;
-      background: linear-gradient(to top, rgba(12,12,11,0.95) 0%, transparent 100%);
-    }
-
-    .port-tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 0.5rem;
-    }
-    .port-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.04em;
-      color: var(--cream);
-      margin-bottom: 0.5rem;
-    }
-    .port-card p {
-      font-size: 0.82rem;
-      color: rgba(212,207,196,0.7);
-      margin-bottom: 1rem;
-    }
-    .port-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--amber);
-      text-decoration: none;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: all 0.3s;
-    }
-    .port-card:hover .port-link {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Full-width card */
-    .port-card.wide {
-      grid-column: span 2;
-      aspect-ratio: 16/7;
-    }
-
-    /* ─── FAQ ─── */
-    .faq-list {
-      border-top: 1px solid var(--border);
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .faq-q {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.8rem 0;
-      cursor: pointer;
-      transition: color 0.3s;
-    }
-    .faq-q:hover { color: var(--cream); }
-
-    .faq-q h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.35rem;
-      letter-spacing: 0.05em;
-      color: var(--cream);
-      font-weight: 400;
-    }
-    .faq-toggle {
-      width: 28px; height: 28px;
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--amber);
-      font-size: 1.1rem;
-      flex-shrink: 0;
-      transition: all 0.3s;
-    }
-    .faq-item.open .faq-toggle {
-      background: var(--amber);
-      color: var(--black);
-      border-color: var(--amber);
-      transform: rotate(45deg);
-    }
-
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
-    }
-    .faq-a p {
-      padding-bottom: 1.8rem;
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.9;
-      max-width: 680px;
-    }
-    .faq-item.open .faq-a { max-height: 200px; }
-
-    /* ─── CTA ─── */
-    .cta-section {
-      margin: 0 3rem 6rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 5rem 4rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%; right: -10%;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(232,160,36,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .cta-section h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 4vw, 4.5rem);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      color: var(--cream);
-    }
-    .cta-section h2 em {
-      font-family: 'Instrument Serif', serif;
-      font-style: italic;
-      color: var(--amber);
-    }
-    .cta-section p {
-      color: var(--muted);
-      margin-top: 1rem;
-      font-size: 0.95rem;
-    }
-    .cta-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 1rem;
-      flex-shrink: 0;
-    }
-
-    .cta-contact {
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-align: right;
-    }
-    .cta-contact a {
-      color: var(--amber);
-      text-decoration: none;
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--dark);
-      border-top: 1px solid var(--border);
-      padding: 3rem;
-    }
-    .footer-inner {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
-    }
-
-    .footer-brand .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.06em;
-      color: var(--cream);
-      display: block;
-      margin-bottom: 1rem;
-    }
-    .footer-brand .logo span { color: var(--amber); }
-    .footer-brand p {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 280px;
-    }
-
-    .footer-col h4 {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1.4rem;
-    }
-    .footer-col a, .footer-col p {
-      display: block;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.87rem;
-      margin-bottom: 0.8rem;
-      transition: color 0.3s;
-    }
-    .footer-col a:hover { color: var(--cream); }
-
-    .footer-bottom {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-bottom p {
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    @keyframes scrollPulse {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50%       { opacity: 1;   transform: scaleY(1.15); }
-    }
-
-    /* Reveal on scroll */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
-      header { padding: 0 1.5rem; }
-      .hero-title { font-size: clamp(4rem, 16vw, 8rem); }
-      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 2rem; }
-      .hero-actions { align-items: flex-start; }
-      .section { padding: 5rem 1.5rem; }
-      .why-grid { grid-template-columns: 1fr; }
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .port-card.wide { grid-column: span 1; aspect-ratio: 4/3; }
-      .cta-section { grid-template-columns: 1fr; margin: 0 1.5rem 4rem; }
-      .cta-right { align-items: flex-start; }
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-      .service-row { padding: 1.5rem; }
-      .service-desc { display: none; }
-    }
-  </style>
-</head>
-<body>
-
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">Momo<span>Stack</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#portfolio">Work</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact" class="nav-cta">Start Project</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<header>
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <span>Digital Studio · Darjeeling, India</span>
-    </div>
-    <h1 class="hero-title">
-      WE BUILD<br>
-      <span class="italic">digital</span><br>
-      <span class="outline">EXPERIENCES</span>
-    </h1>
-  </div>
-
-  <div class="hero-bottom">
-    <p class="hero-desc">
-      Custom websites & software that perform. SEO-optimized, conversion-focused, built for businesses across India, Nepal & the USA.
-    </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Start Your Project</a>
-      <a href="#portfolio" class="btn-ghost">View Our Work ↓</a>
-    </div>
-  </div>
-
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
-</header>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">20+ Projects Delivered</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">98% Client Satisfaction</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">3+ Countries Served</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">24/7 Support</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">India · Nepal · USA</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">Performance First</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">SEO Optimized</span><span class="ticker-sep">✦</span>
-    <!-- Duplicate for seamless loop -->
-    <span class="ticker-item">20+ Projects Delivered</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">98% Client Satisfaction</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">3+ Countries Served</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">24/7 Support</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">India · Nepal · USA</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">Performance First</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">SEO Optimized</span><span class="ticker-sep">✦</span>
-  </div>
-</div>
-
-<!-- WHY -->
-<div class="section reveal">
-  <div class="section-label"><span>Why MomoStack</span></div>
-  <h2 class="section-heading">Built Different.<br><span class="em">Delivered Better.</span></h2>
-  <p class="section-sub">We're not just developers — we're your strategic technology partner.</p>
-
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-num">01</div>
-      <h3>Performance-First</h3>
-      <p>Lightning-fast websites optimized for speed, conversions, and user experience. Every millisecond counts when it comes to retaining visitors and ranking higher.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">02</div>
-      <h3>SEO Expertise</h3>
-      <p>Built-in SEO optimization from day one. We architect sites so Google loves them — technical SEO, semantic markup, Core Web Vitals, all handled.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">03</div>
-      <h3>Custom Solutions</h3>
-      <p>No templates, no shortcuts. Tailored development that perfectly matches your unique business needs, workflows, and growth ambitions.</p>
-    </div>
-    <div class="why-card">
-      <div class="why-num">04</div>
-      <h3>Security First</h3>
-      <p>Enterprise-grade security measures to protect your business data and your customers. Every project ships locked down.</p>
-    </div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<div class="services-wrap reveal" id="services">
-  <div class="section-label" style="padding: 4rem 3rem 0; max-width:1300px; margin:0 auto;"><span>What We Do</span></div>
-  <div class="section-heading" style="padding: 0.5rem 3rem 3rem; max-width:1300px; margin:0 auto; font-family:'Bebas Neue',sans-serif; font-size:clamp(2.8rem,5vw,5rem); color:var(--cream); letter-spacing:0.02em;">Our <span style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--amber);">Services</span></div>
-
-  <div class="services-list">
-    <div class="service-row">
-      <div class="service-left">
-        <span class="service-idx">01</span>
-        <span class="service-name">Custom Website Development</span>
-      </div>
-      <span class="service-desc">Bespoke, SEO-optimized sites built with modern tech. Mobile-first, fast, conversion-focused.</span>
-      <span class="service-arrow">→</span>
-    </div>
-    <div class="service-row">
-      <div class="service-left">
-        <span class="service-idx">02</span>
-        <span class="service-name">E-Commerce Solutions</span>
-      </div>
-      <span class="service-desc">Full-featured online stores with secure payments, inventory, and seamless checkout.</span>
-      <span class="service-arrow">→</span>
-    </div>
-    <div class="service-row">
-      <div class="service-left">
-        <span class="service-idx">03</span>
-        <span class="service-name">Web Applications</span>
-      </div>
-      <span class="service-desc">Scalable, robust apps built to handle complex business processes efficiently.</span>
-      <span class="service-arrow">→</span>
-    </div>
-    <div class="service-row">
-      <div class="service-left">
-        <span class="service-idx">04</span>
-        <span class="service-name">UI/UX Design</span>
-      </div>
-      <span class="service-desc">Beautiful, intuitive interfaces that increase engagement and drive results.</span>
-      <span class="service-arrow">→</span>
-    </div>
-    <div class="service-row">
-      <div class="service-left">
-        <span class="service-idx">05</span>
-        <span class="service-name">Landing Page Optimization</span>
-      </div>
-      <span class="service-desc">High-converting pages designed to maximize leads, sales, and ROI.</span>
-      <span class="service-arrow">→</span>
-    </div>
-    <div class="service-row">
-      <div class="service-left">
-        <span class="service-idx">06</span>
-        <span class="service-name">Maintenance & Support</span>
-      </div>
-      <span class="service-desc">Ongoing support, updates, performance optimization, 24/7 assistance.</span>
-      <span class="service-arrow">→</span>
-    </div>
-  </div>
-</div>
-
-<!-- PROCESS -->
-<div class="section reveal" id="process">
-  <div class="section-label"><span>How We Work</span></div>
-  <h2 class="section-heading">The <span class="em">Process</span></h2>
-  <p class="section-sub">A proven methodology that delivers exceptional results, every time.</p>
-
-  <div class="process-grid">
-    <div class="process-card">
-      <div class="process-num">01</div>
-      <h3>Discovery & Strategy</h3>
-      <p>We analyze your goals, audience, and competition to craft a winning digital strategy tailored to your market.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-num">02</div>
-      <h3>Design & Prototype</h3>
-      <p>Beautiful, user-centered designs that align with your brand identity and guide users toward key actions.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-num">03</div>
-      <h3>Build & Develop</h3>
-      <p>Clean code, best practices, cutting-edge technologies. We build fast and we build to last.</p>
-    </div>
-    <div class="process-card">
-      <div class="process-num">04</div>
-      <h3>Launch & Optimize</h3>
-      <p>Deploy with confidence, then monitor and continuously refine for maximum performance and growth.</p>
-    </div>
-  </div>
-</div>
-
-<!-- PORTFOLIO -->
-<div class="section reveal" id="portfolio" style="padding-bottom:0;">
-  <div class="section-label"><span>Our Work</span></div>
-  <h2 class="section-heading">Featured <span class="em">Projects</span></h2>
-  <p class="section-sub">Real results for real businesses across industries and geographies.</p>
-</div>
-
-<div class="portfolio-grid reveal" style="margin: 0 3rem 7rem; max-width:calc(1300px); margin-left:max(3rem, calc(50% - 650px)); margin-right:max(3rem, calc(50% - 650px));">
-  <div class="port-card wide">
-    <img src="assets/img/portfolio/NJ.png" alt="Nepal Journey NGO Website" onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg,#1a1a17,#252520)'">
-    <div class="port-info">
-      <p class="port-tag">NGO · USA / Nepal</p>
-      <h3>Nepal Journey</h3>
-      <p>US-based NGO platform with donation system, impact reporting, and community storytelling features.</p>
-      <a href="https://nepaljourney.org/" target="_blank" rel="noopener" class="port-link">Visit Site →</a>
-    </div>
-  </div>
-  <div class="port-card">
-    <img src="assets/img/portfolio/CIN.png" alt="Christ Institute of Nursing" onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg,#1a1a17,#252520)'">
-    <div class="port-info">
-      <p class="port-tag">Education · India</p>
-      <h3>Christ Institute of Nursing</h3>
-      <p>Educational platform with online admissions, course catalog, and student portal.</p>
-      <a href="https://christinstituteofnursing.co.in/" target="_blank" rel="noopener" class="port-link">Visit Site →</a>
-    </div>
-  </div>
-  <div class="port-card">
-    <img src="assets/img/portfolio/visithappytrip.jpg" alt="Visit Happy Trip Travel" onerror="this.style.display='none'; this.parentNode.style.background='linear-gradient(135deg,#1a1a17,#252520)'">
-    <div class="port-info">
-      <p class="port-tag">Travel & Tourism · Bhutan</p>
-      <h3>Visit Happy Trip</h3>
-      <p>Full-service Bhutan travel platform with booking engine, tour packages, and reviews.</p>
-      <a href="https://www.visithappytrip.com/" target="_blank" rel="noopener" class="port-link">Visit Site →</a>
-    </div>
-  </div>
-</div>
-
-<!-- FAQ -->
-<div class="section reveal" id="faq">
-  <div class="section-label"><span>FAQ</span></div>
-  <h2 class="section-heading">Common <span class="em">Questions</span></h2>
-  <p class="section-sub">Everything you need to know before we start building together.</p>
-
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q"><h3>How much does a website cost?</h3><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><p>Project costs vary based on complexity, features, and timeline. We offer flexible packages starting from budget-friendly options for startups to enterprise solutions. Get in touch for a custom quote tailored to your needs.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>How long does development take?</h3><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><p>Typical projects range from 2–8 weeks depending on scope. Simple sites take 2–3 weeks; complex web applications may require 6–8 weeks or more. We'll give you a clear timeline before we begin.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Do you work with international clients?</h3><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><p>Absolutely. We proudly serve clients across India, Nepal, USA, and globally. Our team is experienced in remote collaboration across time zones — seamless communication is part of how we work.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>What technologies do you use?</h3><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><p>We use modern, battle-tested technologies including React, Next.js, Node.js, PHP, WordPress, and more — always chosen based on what best fits your specific project requirements and future scale.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Do you provide ongoing support?</h3><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><p>Yes. We offer comprehensive maintenance plans including security updates, performance optimization, content updates, and 24/7 technical support. We stay with you long after launch.</p></div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q"><h3>Will my website be mobile-friendly?</h3><span class="faq-toggle">+</span></div>
-      <div class="faq-a"><p>Guaranteed. Every site we build is fully responsive and optimized across all devices. Mobile-first development is our standard, not an add-on.</p></div>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<div class="cta-section reveal" id="contact">
-  <div>
-    <h2>Ready to Build<br><em>Something Great?</em></h2>
-    <p>Let's talk about your project and what's possible.</p>
-  </div>
-  <div class="cta-right">
-    <a href="mailto:momostackagency@gmail.com" class="btn-primary">Get Free Consultation</a>
-    <div class="cta-contact">
-      Or reach us directly<br>
-      <a href="tel:+916295135254">+91 6295135254</a> · <a href="mailto:momostackagency@gmail.com">momostackagency@gmail.com</a>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo">Momo<span>Stack</span></span>
-      <p>Leading custom website and software development agency delivering high-performance digital solutions from the hills of Darjeeling, India.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <a href="#services">Website Development</a>
-      <a href="#services">E-Commerce</a>
-      <a href="#services">Web Applications</a>
-      <a href="#services">UI/UX Design</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#process">Process</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact">Get Quote</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>📍 Lebong, Darjeeling – 734105, India</p>
-      <a href="tel:+916295135254">+91 6295135254</a>
-      <a href="mailto:momostackagency@gmail.com">momostackagency@gmail.com</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 MomoStack. All rights reserved.</p>
-    <p>Professional Web Development · Darjeeling, India</p>
-  </div>
-</footer>
-
-<script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top  = my + 'px';
-  });
-
-  function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
-
-  // Nav scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  reveals.forEach(r => obs.observe(r));
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.parentElement;
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    });
-  });
+---
+layout: default
+title: MomoStack — Digital Studio, Darjeeling
+description: >-
+  MomoStack builds high-performance, SEO-optimized websites and custom software.
+  Based in Darjeeling, India. Trusted by businesses across India, Nepal & the USA.
+canonical: https://www.momostack.com/
+image: /assets/img/banner.png
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in site.data.faq %}
+    {
+      "@type": "Question",
+      "name": {{ item.question | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.answer | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
 </script>
-</body>
-</html>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="home">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="hero-badge">
+        <span class="badge-dot"></span>
+        Digital Studio · Darjeeling, India
+      </span>
+      <h1 class="hero-title">
+        We build digital products that <em>perform.</em>
+      </h1>
+      <p class="hero-desc">
+        Custom websites and software engineered for speed, clarity, and
+        conversion—trusted by businesses across India, Nepal, and the USA.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-accent">
+          Start Your Project <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="#portfolio" class="btn btn-outline">
+          View Our Work <span class="btn-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <p class="hero-note">No templates. No fluff. Just products built to perform.</p>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="visual-window">
+        <div class="window-top">
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-url">momostack.com / studio</span>
+        </div>
+        <div class="window-body">
+          <div class="window-sidebar">
+            <span class="sidebar-logo"></span>
+            <span class="sidebar-line active"></span>
+            <span class="sidebar-line"></span>
+            <span class="sidebar-line short"></span>
+            <span class="sidebar-line"></span>
+            <span class="sidebar-line short"></span>
+          </div>
+          <div class="window-main">
+            <div class="window-heading">
+              <strong>Project overview</strong>
+              <span class="window-pill">Live</span>
+            </div>
+            <div class="window-metrics">
+              <div class="metric"><span>Uptime</span><strong>99.9%</strong></div>
+              <div class="metric"><span>Load time</span><strong>0.8s</strong></div>
+              <div class="metric"><span>Projects</span><strong>20+</strong></div>
+            </div>
+            <div class="window-chart">
+              <span class="chart-bar" style="--h: 38%; --i: 1"></span>
+              <span class="chart-bar" style="--h: 56%; --i: 2"></span>
+              <span class="chart-bar accent" style="--h: 44%; --i: 3"></span>
+              <span class="chart-bar" style="--h: 72%; --i: 4"></span>
+              <span class="chart-bar" style="--h: 52%; --i: 5"></span>
+              <span class="chart-bar" style="--h: 84%; --i: 6"></span>
+              <span class="chart-bar accent" style="--h: 66%; --i: 7"></span>
+              <span class="chart-bar" style="--h: 48%; --i: 8"></span>
+              <span class="chart-bar" style="--h: 92%; --i: 9"></span>
+            </div>
+            <div class="window-rows">
+              <div class="window-row">
+                <span class="row-label">Design</span>
+                <span class="row-track"><span class="row-fill" style="--w: 92%"></span></span>
+              </div>
+              <div class="window-row">
+                <span class="row-label">Build</span>
+                <span class="row-track"><span class="row-fill" style="--w: 74%"></span></span>
+              </div>
+              <div class="window-row">
+                <span class="row-label">Launch</span>
+                <span class="row-track"><span class="row-fill" style="--w: 86%"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="float-chip float-chip-1">Fast by default</span>
+      <span class="float-chip float-chip-2">Built to convert</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="stats-bar reveal" aria-label="Studio highlights">
+      {% for stat in site.data.stats %}
+        <div class="stat-item">
+          <div class="stat-value" data-count="{{ stat.value }}">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TECH MARQUEE ════════ -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-inner">
+      {% assign logos = "react-2.svg,next-js.svg,vue-9.svg,angular-icon-1.svg,nodejs-1.svg,javascript-1.svg,html-1.svg,css-3.svg,php.svg,figma.svg,bootstrap-5.svg,webpack-icon.svg,svelte-wordmark-1.svg,nuxt-2.svg" | split: "," %}
+      {% for logo in logos %}
+        <div class="marquee-logo">
+          <img src="{{ '/assets/img/brandlogos/' | append: logo | relative_url }}" alt="" loading="lazy" width="36" height="36">
+        </div>
+      {% endfor %}
+      {% for logo in logos %}
+        <div class="marquee-logo">
+          <img src="{{ '/assets/img/brandlogos/' | append: logo | relative_url }}" alt="" loading="lazy" width="36" height="36">
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ABOUT / WHY ════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">Why MomoStack</span>
+      <h2 class="section-title">Built different. <em>Delivered better.</em></h2>
+      <p class="section-desc">
+        We partner with founders and teams to build fast, maintainable digital
+        products without unnecessary complexity.
+      </p>
+    </div>
+
+    <div class="bento-grid">
+      {% for item in site.data.why %}
+        <article class="{% if forloop.first %}bento-card bento-card--feature{% else %}bento-card{% endif %} reveal">
+          <span class="bento-num">{{ item.number }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our <em>Services</em></h2>
+      <p class="section-desc">
+        Focused web and software capabilities tailored to how your business actually operates.
+      </p>
+    </div>
+
+    <div class="services-list">
+      {% for service in site.data.services %}
+        <article class="service-row reveal">
+          <span class="service-num">{{ service.number }}</span>
+          <div class="service-info">
+            <h3>{{ service.name }}</h3>
+            <p>{{ service.description }}</p>
+          </div>
+          <span class="service-arrow" aria-hidden="true">→</span>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PROCESS ════════ -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">How We Work</span>
+      <h2 class="section-title">The <em>Process</em></h2>
+      <p class="section-desc">
+        A straightforward four-step workflow that keeps scope clear and launches predictable.
+      </p>
+    </div>
+
+    <div class="process-timeline reveal">
+      {% for step in site.data.process %}
+        <article class="timeline-step">
+          <div class="step-marker">{{ step.number }}</div>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PORTFOLIO ════════ -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-header portfolio-header reveal">
+      <div>
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">Featured <em>Projects</em></h2>
+      </div>
+      <p class="section-desc">
+        Real results for organizations across non-profits, education, and travel.
+      </p>
+    </div>
+
+    {% assign featured_projects = site.data.projects | where_exp: "project", "project.featured == true" %}
+    {% assign other_projects = site.data.projects | where_exp: "project", "project.featured != true" %}
+
+    {% if featured_projects.size > 0 %}
+      <div class="project-spotlight">
+        {% for project in featured_projects %}
+          <article class="spotlight-card reveal">
+            <div class="spotlight-media">
+              <img
+                src="{{ project.image | relative_url }}"
+                alt="{{ project.alt }}"
+                loading="lazy"
+              >
+              <span class="spotlight-badge">Featured Project</span>
+            </div>
+            <div class="spotlight-body">
+              <p class="project-tag">{{ project.tag }}</p>
+              <h3>{{ project.title }}</h3>
+              <p class="project-description">{{ project.description }}</p>
+              <a
+                href="{{ project.url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="spotlight-link"
+              >
+                Visit Site <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if other_projects.size > 0 %}
+      <div class="project-grid">
+        {% for project in other_projects %}
+          <article class="project-card reveal">
+            <a
+              href="{{ project.url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card-link"
+              aria-label="Visit {{ project.title }} website"
+            >
+              <div class="project-media">
+                <img
+                  src="{{ project.image | relative_url }}"
+                  alt="{{ project.alt }}"
+                  loading="lazy"
+                >
+              </div>
+              <div class="project-body">
+                <p class="project-tag">{{ project.tag }}</p>
+                <h3>{{ project.title }}</h3>
+                <p class="project-description">{{ project.description }}</p>
+                <span class="project-cta">
+                  Visit Site <span aria-hidden="true">↗</span>
+                </span>
+              </div>
+            </a>
+          </article>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common <em>Questions</em></h2>
+      <p class="section-desc">
+        Answers to the questions clients ask most before we kick off a project.
+      </p>
+    </div>
+
+    <div class="faq-list">
+      {% for item in site.data.faq %}
+        <div class="faq-item reveal">
+          <h3>
+            <button
+              type="button"
+              class="faq-trigger"
+              aria-expanded="false"
+              aria-controls="faq-panel-{{ forloop.index }}"
+            >
+              <span>{{ item.question }}</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+          </h3>
+          <div class="faq-panel" id="faq-panel-{{ forloop.index }}" hidden>
+            <p>{{ item.answer }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include cta.html %}
